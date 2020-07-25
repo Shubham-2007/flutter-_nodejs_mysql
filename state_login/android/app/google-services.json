@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "423412049404",
+    "firebase_url": "https://taskappdemo-6a616.firebaseio.com",
+    "project_id": "taskappdemo-6a616",
+    "storage_bucket": "taskappdemo-6a616.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:423412049404:android:85e73e4b8894dd3ebfbe79",
+        "android_client_info": {
+          "package_name": "com.example.bloc_login"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "423412049404-l1g6a4f9r44r8lvbqvm2ram9b2i2upk3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.bloc_login",
+            "certificate_hash": "42acd8fca348efcb9327ba2264fc8423f88eea47"
+          }
+        },
+        {
+          "client_id": "423412049404-ibhrppdm2ikjuujp0vjrlulsdnb5dtgc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCg8fRSvPMBR-T7XHCdvAHe5-JZ0QlQRLs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "423412049404-ibhrppdm2ikjuujp0vjrlulsdnb5dtgc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
