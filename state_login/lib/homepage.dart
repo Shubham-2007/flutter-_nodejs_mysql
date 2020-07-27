@@ -62,8 +62,7 @@ class _TaskState extends State<Task> with SingleTickerProviderStateMixin {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => Settingpage()));
-              
+                      builder: (context) => Settingpage(id: widget.id,)));
               //  signout(auth);
               //  handleSignOut(auth);
             },
@@ -77,6 +76,7 @@ class _TaskState extends State<Task> with SingleTickerProviderStateMixin {
             setState(() {
               currentPage = value;
               print(currentPage.toInt());
+              print( "//////////////////////////////"+widget.id);
             });
           },
           pageSnapping: true,

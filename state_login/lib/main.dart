@@ -31,7 +31,7 @@ class TaskApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-          primarySwatch: Colors.deepOrange,
+          primarySwatch: Colors.deepPurple,
           appBarTheme: AppBarTheme(
             brightness: Brightness.light,
             elevation: 5,
@@ -39,7 +39,8 @@ class TaskApp extends StatelessWidget {
           )),
       home: Consumer<AuthNotifier>(
         builder: (context, notifier, child) {
-          return notifier.user != null || notifier.guser!=null
+          
+          return notifier.user != null || notifier.guser != null
               ? Task(
                   id: notifier.user,
                 )

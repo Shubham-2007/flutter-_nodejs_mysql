@@ -1,12 +1,20 @@
 class User {
-  var name;
-  var last;
+  String name;
+  String last;
   var mail;
   var password;
   var number;
   var id;
 
   User();
+  
+  User.fromJson(data) {
+    name = data['username'].toString();
+    last = data['lastname'].toString();
+    // mail = data['mail'];
+    // number = data['number'];
+    // password = data['password'];
+  }
 
   User.fromMap(Map<dynamic, dynamic> data) {
     name = data['username'];

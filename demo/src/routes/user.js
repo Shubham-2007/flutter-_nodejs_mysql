@@ -66,6 +66,21 @@ router.get('/:users/:id/selftasks', (req, res) => {
     mysqlconnection.query('select * from selftask where uid=?;', [id], (error, rows, fields) => {
         if (!error) {
             res.json(rows);
+            //print(rows);
+        } else {
+            console.log(error);
+        }
+    });
+});
+
+//get a user
+router.get('/:users/:id', (req, res) => {
+    const { id } = req.params;
+    mysqlconnection.query('select * from users where id = ?;', [id], (error, rows, fields) => {
+        if (!error) {
+            res.json(rows);
+            print("rows");
+
         } else {
             console.log(error);
         }
@@ -105,17 +120,7 @@ router.get("/users/mails", (req, res) => {
     });
 });
 
-//get a user
-router.get('/:users/:id', (req, res) => {
-    const { id } = req.params;
-    mysqlconnection.query('select * from users where id = ?;', [id], (error, rows, fields) => {
-        if (!error) {
-            res.json(rows);
-        } else {
-            console.log(error);
-        }
-    });
-});
+
 
 //input new user
 router.post('/:users/input/:id', (req, res) => {
