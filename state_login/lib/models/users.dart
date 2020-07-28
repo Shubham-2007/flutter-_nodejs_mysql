@@ -7,7 +7,7 @@ class User {
   var id;
 
   User();
-  
+
   User.fromJson(data) {
     name = data['username'].toString();
     last = data['lastname'].toString();
@@ -32,5 +32,26 @@ class User {
       "number": "$number",
       "password": "$password",
     };
+  }
+}
+
+class Album {
+  final String userid;
+  final String name;
+  final String last;
+  final String mail;
+  final String password;
+  final String number;
+  Album({this.userid, this.name, this.last, this.mail, this.password, this.number});
+
+  factory Album.fromJson(Map<String, dynamic> parsedJson) {
+    return Album(
+      userid: parsedJson['id'] as String,
+      name: parsedJson['username'] as String,
+      last: parsedJson['lastname'],
+      mail: parsedJson['mail'],
+      password: parsedJson['password'],
+      number: parsedJson['number'],
+    );
   }
 }

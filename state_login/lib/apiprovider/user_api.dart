@@ -77,6 +77,18 @@ getUsers(id) async {
   }
 }
 
+Future<Album> fetchAlbum(id) async {
+  final response = await http.get('http://10.0.2.2:3000/users/$id');
+
+  if (response.statusCode == 200) {
+    print(json.decode(response.body));
+
+    return Album.fromJson(json.decode(response.body)[0]);
+  } else {
+    throw Exception('Failed to load album');
+  }
+}
+
 login(User user, AuthNotifier authNotifier) async {
   SharedPreferences pref = await SharedPreferences.getInstance();
   var response = await http.get(
@@ -152,7 +164,7 @@ getselftask(id) async {
     task = (json.decode(response.body) as List)
         .map((e) => SelfTaskListModel.fromJson(e))
         .toList();
-    print(task);
+    //print(task);
     return task;
   } else {
     print('error with server');

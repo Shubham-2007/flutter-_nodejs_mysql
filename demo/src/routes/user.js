@@ -79,7 +79,7 @@ router.get('/:users/:id', (req, res) => {
     mysqlconnection.query('select * from users where id = ?;', [id], (error, rows, fields) => {
         if (!error) {
             res.json(rows);
-            print("rows");
+            //print("rows");
 
         } else {
             console.log(error);

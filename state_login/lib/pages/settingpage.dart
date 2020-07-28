@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:state_login/apiprovider/user_api.dart';
 import 'package:state_login/models/users.dart';
+import 'dart:async' show Future;
+import 'package:flutter/services.dart' show rootBundle;
+import 'dart:convert';
 
 class Settingpage extends StatefulWidget {
   final id;
@@ -20,11 +23,11 @@ class _SettingpageState extends State<Settingpage> {
     'Dark Mode',
     'Sign Out',
   ];
-
+  //Future<Album> futureAlbum;
   @override
   void initState() {
     super.initState();
-    
+    //futureAlbum = fetchAlbum(widget.id);
   }
 
   @override
@@ -89,20 +92,24 @@ class _SettingpageState extends State<Settingpage> {
                         ),
                         Container(
                           padding: EdgeInsets.fromLTRB(0, 14, 0, 0),
-                            child: FutureBuilder(
-                                future: getUsers(widget.id),
-                                builder: (context, snapshot) {
-                                  return Container(
-                                    child: Text(
-                                      snapshot.data[0].name,
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 21,
-                                      ),
-                                    ),
-                                  );
-                                }),
-                          
+                          child: FutureBuilder(
+                            future: fetchAlbum(widget.id),
+                            builder: (context, snapshot) {
+                              print(widget.id +
+                                  "--------////-----------------------");
+                              if (snapshot.hasData) {
+                                print(snapshot.data.name + "--------------");
+                                return Text(snapshot.data.name.toString(),
+                                    style: TextStyle(
+                                      fontSize: 21,
+                                      color: Colors.white,
+                                    ));
+                              } else if (snapshot.hasError) {
+                                return Text("${snapshot.error}");
+                              }
+                              return CircularProgressIndicator();
+                            },
+                          ),
                         ),
                         // Container(
                         //   padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
