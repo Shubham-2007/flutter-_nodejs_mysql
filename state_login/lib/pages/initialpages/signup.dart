@@ -13,7 +13,7 @@ class Signup extends StatefulWidget {
 class _SignupState extends State<Signup> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final TextEditingController _passwordController = new TextEditingController();
-  String _errorMessage;
+
   AuthNotifier authNotifier;
 
   bool _submitForm() {

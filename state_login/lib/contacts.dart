@@ -33,6 +33,7 @@ Future<List<ContactDetail>> refreshContacts() async {
       }
     }
     print(phones.length);
+    print("***************11");
     return phones;
   } else {
     handleInvalidPermissions(pstatus);

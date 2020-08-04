@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:state_login/apiprovider/user_api.dart';
-import 'package:state_login/models/users.dart';
-import 'dart:async' show Future;
-import 'package:flutter/services.dart' show rootBundle;
-import 'dart:convert';
 
 class Settingpage extends StatefulWidget {
   final id;
@@ -53,9 +49,16 @@ class _SettingpageState extends State<Settingpage> {
                 children: <Widget>[
                   Container(
                     padding: EdgeInsets.fromLTRB(0.0, 100.0, 0.0, 0.0),
-                    decoration: BoxDecoration(
-                        color: Color.fromRGBO(138, 83, 199, 1),
-                        boxShadow: <BoxShadow>[
+                    decoration:
+                        BoxDecoration(color: Color.fromRGBO(138, 83, 199, 1),
+                            // image: DecorationImage(
+                            //           colorFilter: ColorFilter.mode(
+                            //               Color.fromRGBO(159, 98, 228, 20)
+                            //                   .withOpacity(0.85),
+                            //               BlendMode.dstATop),
+                            //           fit: BoxFit.fitWidth,
+                            //           image: AssetImage('asset/bg.png')),
+                            boxShadow: <BoxShadow>[
                           BoxShadow(
                             color: Color.fromRGBO(159, 98, 228, 1),
                             //offset: Offset(10.0, 0.0),

@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:http/http.dart' as http;
-import 'package:state_login/homepage.dart';
+//import 'package:state_login/homepage.dart';
 import 'package:state_login/models/assignTask.dart';
 import 'package:state_login/models/assignedBymemodel.dart';
 import 'package:state_login/models/assignedTomemodel.dart';
@@ -60,22 +60,22 @@ Future<void> handleSignOut(AuthNotifier authNotifier) async {
 
 //static const String url = 'http://10.0.2.2:3000/own/1';
 
-getUsers(id) async {
-  List<User> userdata;
-  print(id + "-------------------------------");
-  //List<User> task;
-  var response = await http.get('http://10.0.2.2:3000/users/$id');
-  if (response.statusCode == 200) {
-    //
-    userdata = (json.decode(response.body) as List)
-        .map((e) => User.fromJson(e))
-        .toList();
-    print(userdata);
-    return userdata;
-  } else {
-    print('error with server');
-  }
-}
+// getUsers(id) async {
+//   List<User> userdata;
+//   print(id + "-------------------------------");
+//   //List<User> task;
+//   var response = await http.get('http://10.0.2.2:3000/users/$id');
+//   if (response.statusCode == 200) {
+//     //
+//     userdata = (json.decode(response.body) as List)
+//         .map((e) => User.fromJson(e))
+//         .toList();
+//     print(userdata);
+//     return userdata;
+//   } else {
+//     print('error with server');
+//   }
+// }
 
 Future<Album> fetchAlbum(id) async {
   final response = await http.get('http://10.0.2.2:3000/users/$id');

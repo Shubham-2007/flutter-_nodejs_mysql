@@ -51,7 +51,6 @@ class _AddNewTaskForOtherState extends State<AddNewTaskForOther> {
   int i = 0;
 
   void getmessage() {
-    print('///////////////////////////////////////////////////////');
     _firebaseMessaging.onTokenRefresh.listen(sendTokenToServer);
     //   _firebaseMessaging.getToken();
     //_firebaseMessaging.subscribeToTopic('all');
@@ -61,8 +60,7 @@ class _AddNewTaskForOtherState extends State<AddNewTaskForOther> {
 
     _firebaseMessaging.configure(
       onMessage: (Map<String, dynamic> message) async {
-        i++;
-        print("$i onMessage: $message");
+        print(" onMessage: $message");
         final notification = message['notification'];
         setState(() {
           //    messages.add(Message(
@@ -70,9 +68,7 @@ class _AddNewTaskForOtherState extends State<AddNewTaskForOther> {
         });
       },
       onLaunch: (Map<String, dynamic> message) async {
-        i++;
         print("onLaunch: $message");
-
         final notification = message['data'];
         setState(() {
           // messages.add(Message(
@@ -91,18 +87,13 @@ class _AddNewTaskForOtherState extends State<AddNewTaskForOther> {
 
   Future sendNotification() async {
     getmessage();
-    //String uerstoken = await _firebaseMessaging.getToken();
-    //print('Token------------------- sendnoti:   ' );
     final response = await Messaging.sendToTopic(
       title: at.title,
       body: at.desc,
       usertoken:
           "dRgjGgTkaSQ:APA91bHNLyv55XpY-GvoFlNSv_GHRnrpKzsQM2UNcpuQGtIDZ2A3SVLdPBblGhH7_8C8oqi5Dyi_EtrFDzoJxrXuO_Z4io6iJpUspGisEbg22PnRIrA6KtHaASLYUwb2vCueuV9Nn3Jh",
-      // fcmToken: fcmToken,
     );
-    print('Token**************************** sendnoti:   ');
     if (response.statusCode != 200) {
-      print("11111111111111111111111111");
       Scaffold.of(context).showSnackBar(SnackBar(
         content: Text(
             '[${response.statusCode}] Error message------------------------------------------: ${response.body}'),
@@ -111,9 +102,8 @@ class _AddNewTaskForOtherState extends State<AddNewTaskForOther> {
   }
 
   String sendTokenToServer(String fcmToken) {
-    print('Token------------------- addtransfer token: $fcmToken');
-    // send key to your server to allow server to use
-    // this token to send push notifications
+    print('Token: $fcmToken');
+   
     return fcmToken;
   }
 
@@ -220,9 +210,11 @@ class _AddNewTaskForOtherState extends State<AddNewTaskForOther> {
                 child: FutureBuilder<List<ContactDetail>>(
                   future: refreshContacts(),
                   builder: (context, snapshot) {
-                    if (snapshot.connectionState == ConnectionState.waiting)
+                    print("***************1");
+                    if (snapshot.connectionState == ConnectionState.waiting) {
+                      print("***************2");
                       return Center(child: CircularProgressIndicator());
-                    else if (snapshot.hasData) {
+                    } else if (snapshot.hasData) {
                       return DropdownButton<String>(
                         hint: Text('Select People'),
                         value: selectedContact,
@@ -233,6 +225,7 @@ class _AddNewTaskForOtherState extends State<AddNewTaskForOther> {
                             at.tid = selectedContact;
                             print("at.tid: ${at.tid}");
                             print(selectedContact);
+                            print("***************3");
                           });
                         },
                         items: snapshot.data.map((e) {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:state_login/apiprovider/user_api.dart';
+//import 'package:state_login/apiprovider/user_api.dart';
 import 'package:state_login/models/contactdetail.dart';
 import 'package:state_login/notifiers/auth_notifier.dart';
 import 'package:state_login/pages/addNewSelfTask.dart';
@@ -9,6 +9,8 @@ import 'package:state_login/pages/assignedToMetasklist.dart';
 import 'package:state_login/pages/assignedtasklist.dart';
 import 'package:state_login/pages/selftasklist.dart';
 import 'package:state_login/pages/settingpage.dart';
+
+//import 'apiprovider/user_api.dart';
 
 class Task extends StatefulWidget {
   final id;
@@ -63,8 +65,8 @@ class _TaskState extends State<Task> with SingleTickerProviderStateMixin {
                   context,
                   MaterialPageRoute(
                       builder: (context) => Settingpage(id: widget.id,)));
-              //  signout(auth);
-              //  handleSignOut(auth);
+              //   signout(auth);
+              //   handleSignOut(auth);
             },
           )
         ],

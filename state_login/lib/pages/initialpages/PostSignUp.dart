@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:state_login/apiprovider/user_api.dart';
 import 'package:state_login/notifiers/auth_notifier.dart';
-import 'package:state_login/pages/initialPages/StartingPage.dart';
+//import 'package:state_login/pages/initialPages/StartingPage.dart';
 import 'package:state_login/pages/initialPages/signup.dart';
 
 class PostSignup extends StatefulWidget {

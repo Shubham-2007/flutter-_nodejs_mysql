@@ -73,23 +73,10 @@ router.get('/:users/:id/selftasks', (req, res) => {
     });
 });
 
-//get a user
-router.get('/:users/:id', (req, res) => {
-    const { id } = req.params;
-    mysqlconnection.query('select * from users where id = ?;', [id], (error, rows, fields) => {
-        if (!error) {
-            res.json(rows);
-            //print("rows");
-
-        } else {
-            console.log(error);
-        }
-    });
-});
 
 //get all numbers
 router.get("/users/number", (req, res) => {
-    mysqlconnection.query('select id,username,number from users;', (error, rows, fields) => {
+    mysqlconnection.query('select id,username,number from mydb.users;', (error, rows, fields) => {
         if (!error) {
             res.json(rows);
         } else {
@@ -120,7 +107,20 @@ router.get("/users/mails", (req, res) => {
     });
 });
 
+//get a user
+router.get('/:users/:id', (req, res) => {
+    const { id } = req.params;
+    mysqlconnection.query('select * from users where id = ?;', [id], (error, rows, fields) => {
+        if (!error) {
+            res.json(rows);
+            //print("rows");
 
+        } else {
+            console.log(error);
+        }
+    });
+});
+//         021410694573;
 
 //input new user
 router.post('/:users/input/:id', (req, res) => {

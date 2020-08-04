@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
-import 'package:state_login/apiprovider/user_api.dart';
+
 import 'package:state_login/homepage.dart';
 import 'package:state_login/pages/initialPages/StartingPage.dart';
-import 'package:state_login/pages/login_2.dart';
-import 'models/users.dart';
+
 import 'notifiers/auth_notifier.dart';
 
 void main() {

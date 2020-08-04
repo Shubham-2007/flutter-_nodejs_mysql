@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:state_login/apiprovider/user_api.dart';
-import 'package:state_login/models/users.dart';
 import 'package:state_login/notifiers/auth_notifier.dart';
 import 'package:state_login/pages/initialPages/NormalLogin.dart';
 import 'package:state_login/pages/initialPages/signup.dart';

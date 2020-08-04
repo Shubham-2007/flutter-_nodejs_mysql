@@ -1,6 +1,6 @@
 class User {
-  String name;
-  String last;
+  var name;
+  var last;
   var mail;
   var password;
   var number;
@@ -9,11 +9,11 @@ class User {
   User();
 
   User.fromJson(data) {
-    name = data['username'].toString();
-    last = data['lastname'].toString();
-    // mail = data['mail'];
-    // number = data['number'];
-    // password = data['password'];
+    name = data['username'];
+    last = data['lastname'];
+    mail = data['mail'];
+    number = data['number'];
+    password = data['password'];
   }
 
   User.fromMap(Map<dynamic, dynamic> data) {
@@ -36,17 +36,23 @@ class User {
 }
 
 class Album {
-  final String userid;
+  final int userid;
   final String name;
   final String last;
   final String mail;
   final String password;
   final String number;
-  Album({this.userid, this.name, this.last, this.mail, this.password, this.number});
+  Album(
+      {this.userid,
+      this.name,
+      this.last,
+      this.mail,
+      this.password,
+      this.number});
 
   factory Album.fromJson(Map<String, dynamic> parsedJson) {
     return Album(
-      userid: parsedJson['id'] as String,
+      userid: parsedJson['id'] ,
       name: parsedJson['username'] as String,
       last: parsedJson['lastname'],
       mail: parsedJson['mail'],

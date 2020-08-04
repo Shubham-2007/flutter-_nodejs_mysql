@@ -45,7 +45,7 @@ class _EditAssignedTaskState extends State<EditAssignedTask> {
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
-      onWillPop: () {
+      onWillPop: (){
         Navigator.pop(context);
       },
       child: Form(
